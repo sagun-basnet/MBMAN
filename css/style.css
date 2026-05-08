@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+}
+#myDiv {
+  border: 2px solid black;
+  padding: 2rem;
+  /* margin-right: 3rem; */
+  margin: 2rem 3rem;
+}
+/* h1 {
+        font-size: 28px;
+      } */
+/* .heading {
+  color: red;
+}
+.bor-1 {
+  border: 2px solid black;
+}
+.bor-2 {
+  border: 4px solid black;
+}
+#myHeading {
+  color: blue;
+}
+.para {
+  border: 4px solid red;
+}
+.para1,
+.para2 {
+  color: purple;
+}
+#myDiv p {
+  color: white;
+} */
+
+.container {
+  width: 30rem;
+  height: 30rem;
+  border: 2px solid black;
+  background-image: url("https://www.shutterstock.com/image-photo/sun-sets-behind-mountain-ranges-600nw-2479236003.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+p {
+  text-align: center;
+}
+

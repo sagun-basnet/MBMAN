@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  height: 100vh;
+  border: 4px solid black;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  /* gap: 2rem;
+  flex-wrap: wrap; */
+  /* align-items: center; */
+}
+.item {
+  height: 10rem;
+  width: 10rem;
+  background-color: aqua;
+  border: 2px solid black;
+}
+nav {
+  height: 5rem;
+  background-color: brown;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+ul {
+  display: flex;
+  list-style: none;
+  gap: 4rem;
+}
+li {
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btns {
+  display: flex;
+  gap: 2rem;
+}
+button {
+  padding: 0.8rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+.login {
+  background-color: blue;
+  transition: 0.2s ease-in-out all;
+  &:hover {
+    background-color: rgb(2, 2, 127);
+  }
+}
+
+.signup {
+  background-color: red;
+}
