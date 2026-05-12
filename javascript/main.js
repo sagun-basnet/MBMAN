@@ -1,6 +1,6 @@
-let a;
-var b;
-const c = 10;
+// let a;
+// var b;
+// const c = 10;
 
 // for ( i = 0; i < 5; i++) {
 //   console.log(i);
@@ -39,9 +39,58 @@ const c = 10;
 //   console.log("Hello");
 // });
 
-const arr = [1, 2, 3, 5, "hello", true, null, undefined, [1, 2, false]];
+// const arr = [
+//   1,
+//   2,
+//   3,
+//   5,
+//   "hello",
+//   true,
+//   null,
+//   undefined,
+//   [1, 2, false],
+//   { name: "jhon" },
+// ];
 
-// console.log(arr);
-for (let i = 0; i < arr.length; i++) {
-  console.log(arr[i]);
-}
+// // console.log(arr);
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(arr[i]);
+// }
+
+// let obj = {
+//   name: "jhon",
+//   age: 25,
+//   isVerified: true,
+//   address: {
+//     country: "nepal",
+//     state: "koshi",
+//     city: "itahari",
+//   },
+// myFUn: add();
+//   arr: [1, 2, 3, 4, 5],
+// };
+// obj.name = "ram";
+// console.log(obj.name);
+
+// const api = [
+//   {
+//     id: 1,
+//     name: "ram",
+//     email: "ram@gmail.com",
+//     phone: "981234567",
+//   },
+//   {
+//     id: 2,
+//     name: "jhon",
+//     email: "jhon@gmail.com",
+//     phone: "984534567",
+//   },
+//   {
+//     id: 3,
+//     name: "ram",
+//     email: "ram@gmail.com",
+//     phone: "981234567",
+//   },
+// ];
+
+// console.log(api[1].name);
