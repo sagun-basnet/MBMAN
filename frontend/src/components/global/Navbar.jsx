@@ -1,25 +1,39 @@
-const Navbar = ({ name }) => {
-  console.log(name);
+import { Link } from "react-router-dom";
+import { FaConciergeBell, FaHome } from "react-icons/fa";
+
+const Navbar = () => {
+  // console.log(name);
 
   return (
     <nav className="h-[5rem] shadow-2xl  bg-amber-400 flex justify-between items-center px-4">
       <h1 className="border">LOGO</h1>
       <ul className="flex gap-4 ">
-        <li>Home</li>
-        <li>About</li>
-        <li>Service</li>
-        <li>Contact</li>
+        <Link to={"/"}>
+          <li className="flex gap-2 items-center">
+            <FaHome /> Home
+          </li>
+        </Link>
+        <Link to={"/about"}>
+          <li>About</li>
+        </Link>
+        <Link to={"/service"}>
+          <li>Service</li>
+        </Link>
+        <Link to={"contact"}>
+          <li>Contact</li>
+        </Link>
       </ul>
-      {name.length !== 0 ? (
-        <span>{name}</span>
-      ) : (
-        <div className="flex gap-2">
+
+      <div className="flex gap-2">
+        <Link to={"/login"}>
           <button className="bg-blue-600  transition-all hover:text-lg hover:bg-blue-400">
             Login
           </button>
+        </Link>
+        <Link to={"/register"}>
           <button className="bg-red-600">Register</button>
-        </div>
-      )}
+        </Link>
+      </div>
     </nav>
   );
 };

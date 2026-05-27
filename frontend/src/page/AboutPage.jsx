@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../components/global/Navbar";
 
 const AboutPage = () => {
-  return (
-    <div>AboutPage</div>
-  )
-}
+  return <div>
 
-export default AboutPage
+    About page
+  </div>;
+};
+
+export default AboutPage;

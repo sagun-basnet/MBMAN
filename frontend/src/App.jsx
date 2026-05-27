@@ -1,54 +1,86 @@
-import { useEffect, useState } from "react";
-import Navbar from "./components/global/Navbar";
+import React from "react";
+// import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import HomePage from "./page/HomePage";
+import AboutPage from "./page/AboutPage";
+import Service from "./page/Service";
+import Contact from "./page/Contact";
+import Navbar from "./components/global/Navbar";
+import NotFound from "./page/NotFound";
+import LoginPage from "./page/LoginPage";
+import RegisterPage from "./page/RegisterPage";
+import Footer from "./components/global/Footer";
+import HomeLayout from "./layout/HomeLayout";
+
 const App = () => {
-  const [count, setCount] = useState(0);
-  const [isZero, setIsZero] = useState(false);
-
-  // const btnClick = () => {
-  //   setCount((prev) => prev + 1);
-  //   console.log(count + 2);
-  // };
-  const handleAdd = () => {
-    setCount((prev) => prev + 1);
-  };
-  const handleSub = () => {
-    setCount((prev) => prev - 1);
-  };
-
-  useEffect(() => {
-    if (count > 0) {
-      setIsZero(true);
-    }
-    if (count === 0) {
-      setIsZero(false);
-    }
-
-    console.log("From useEffect");
-  }, [count]);
+  const route = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomeLayout />,
+      children: [
+        {
+          path: "",
+          element: <HomePage />,
+        },
+        {
+          path: "/home",
+          element: <HomePage />,
+        },
+        {
+          path: "/about",
+          element: <AboutPage />,
+        },
+        {
+          path: "/service",
+          element: <Service />,
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
+        },
+      ],
+    },
+    {
+      path: "/login",
+      element: <LoginPage />,
+    },
+    {
+      path: "/register",
+      element: <RegisterPage />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
+    },
+    // {
+    //   path: "/dashboard",
+    //   element: <DashboardLayout/>,
+    //   children: [
+    //     {
+    //       path: "/dashboard",
+    //       element: <HomeDashboar/>
+    //     },
+    //     {
+    //       path: "/dashboard/user-management",
+    //       element: <UserManagement/>
+    //     },
+    //   ]
+    // }
+  ]);
 
   return (
     <>
-      <div
-        style={{ backgroundColor: isZero ? "bg-white" : "bg-black" }}
-        className={`flex w-full justify-center items-center gap-4 ${isZero ? "bg-white" : "bg-black"}`}
-      >
-        {isZero && (
-          <button onClick={handleSub} className="bg-blue-500">
-            Sub
-          </button>
-        )}
-        <span>{count}</span>
-        <button onClick={handleAdd} className="bg-blue-500">
-          {isZero ? "On" : "Off"}
-        </button>
-      </div>
-
-      {/* <Navbar name={user} />
-      {user.length !== 0 && <p>Welcome {user}</p>} */}
-      {/* <h1 className="">Hello</h1>
-      <h1 className="">Hello</h1> */}
-      {/* <HomePage /> */}
+      <RouterProvider router={route} />
+      {/* <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/service" element={<Service />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes> */}
     </>
   );
 };
