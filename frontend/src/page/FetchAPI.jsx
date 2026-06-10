@@ -8,11 +8,16 @@ const FetchAPI = () => {
   };
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const token = localStorage.getItem("token");
 
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get("https://fakestoreapi.com/products");
+      const res = await axios.get("https://fakestoreapi.com/products", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log(res);
       setData(res.data);
     } catch (err) {

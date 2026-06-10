@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { FaConciergeBell, FaHome } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
+  const { currentUser, logout } = useContext(AuthContext);
+
   // console.log(name);
 
   return (
@@ -24,16 +28,22 @@ const Navbar = () => {
         </Link>
       </ul>
 
-      <div className="flex gap-2">
-        <Link to={"/login"}>
-          <button className="bg-blue-600  transition-all hover:text-lg hover:bg-blue-400">
-            Login
-          </button>
-        </Link>
-        <Link to={"/register"}>
-          <button className="bg-red-600">Register</button>
-        </Link>
-      </div>
+      {currentUser ? (
+        <button className="bg-red-600" onClick={() => logout()}>
+          Logout
+        </button>
+      ) : (
+        <div className="flex gap-2">
+          <Link to={"/login"}>
+            <button className="bg-blue-600  transition-all hover:text-lg hover:bg-blue-400">
+              Login
+            </button>
+          </Link>
+          <Link to={"/register"}>
+            <button className="bg-red-600">Register</button>
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };

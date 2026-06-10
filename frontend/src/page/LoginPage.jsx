@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   let allData = [];
   const init = {
-    email: "",
+    username: "",
     password: "",
   };
   const [formData, setFormData] = useState(init);
@@ -15,28 +18,22 @@ const LoginPage = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     console.log(formData);
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.email.length === 0) {
-      return alert("Email field required..");
+    if (formData.username.length === 0) {
+      return alert("username field required..");
     }
 
     if (formData.password.length < 7) {
       return alert("Password must be of 8 char..");
     }
 
-    console.log(formData);
-    allData.push(formData);
-
-    localStorage.setItem("user", JSON.stringify(allData));
+    const res = await login(formData);
+    console.log(res, ":LOGINRES");
 
     setFormData(init);
-
-    const myUser = localStorage.getItem("user");
-    console.log(JSON.parse(myUser));
-
-    localStorage.removeItem("user");
+    navigate("/");
   };
 
   // console.log(formData);
@@ -50,10 +47,10 @@ const LoginPage = () => {
         <input
           onChange={handleChange}
           className="p-2 w-full rounded-md border-2"
-          type="email"
-          placeholder="Enter email"
-          name="email"
-          value={formData.email}
+          type="username"
+          placeholder="Enter username"
+          name="username"
+          value={formData.username}
           required
         />
         <input

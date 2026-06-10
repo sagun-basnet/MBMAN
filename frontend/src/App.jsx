@@ -13,6 +13,7 @@ import Footer from "./components/global/Footer";
 import HomeLayout from "./layout/HomeLayout";
 import FetchAPI from "./page/FetchAPI";
 import SingleProduct from "./page/SingleProduct";
+import AddForm from "./page/AddForm";
 
 const App = () => {
   const route = createBrowserRouter([
@@ -49,6 +50,10 @@ const App = () => {
     {
       path: "/products/:id",
       element: <SingleProduct />,
+    },
+    {
+      path: "/add-product",
+      element: <AddForm />,
     },
     {
       path: "/api",
