@@ -14,6 +14,8 @@ import HomeLayout from "./layout/HomeLayout";
 import FetchAPI from "./page/FetchAPI";
 import SingleProduct from "./page/SingleProduct";
 import AddForm from "./page/AddForm";
+import Table from "./page/Table";
+import EditProduct from "./page/EditProduct";
 
 const App = () => {
   const route = createBrowserRouter([
@@ -46,6 +48,14 @@ const App = () => {
     {
       path: "/login",
       element: <LoginPage />,
+    },
+    {
+      path: "/product-table",
+      element: <Table />,
+    },
+    {
+      path: "/edit-product/:id",
+      element: <EditProduct />,
     },
     {
       path: "/products/:id",
